@@ -14,9 +14,12 @@ ENTRY = (
     "and Mercury blames the training data."
 )
 
+MAX_ENTRY_CHARS = 200
+
 
 def main() -> None:
     text = ENTRY.strip()
+    assert len(text) <= MAX_ENTRY_CHARS, "entry exceeds 200 characters"
     assert 1 <= len(text) <= 200, f"entry length {len(text)} out of gate"
     assert text.strip(), "entry must not be only whitespace"
     os.makedirs("/output", exist_ok=True)
